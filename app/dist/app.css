@@ -1752,17 +1752,21 @@ h3, h5 {
   padding-top: 43px;
 }
 .banner-top.style-3 .banner-top__content .title {
-  font-family: "Russo One";
+  
+  font-family: "Zen Dots", cursive;
   font-weight: 400;
-  font-size: 56px;
+  font-size: 45px;
   line-height: 1.29;
   text-transform: uppercase;
-  letter-spacing: 1.8px;
+  letter-spacing: -0.8px;
 }
 .banner-top.style-3 .banner-top__content .title span {
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #C004DE;
   -webkit-text-fill-color: rgba(0, 0, 0, 0);
+}
+.banner-top__image {
+    animation: move5 3s infinite linear;
 }
 .banner-top.style-3 .banner-top__content .desc {
   font-size: 20px;
@@ -2056,7 +2060,7 @@ h3, h5 {
 }
 .banner-top.style-5 .banner-top__content .title {
   font-weight: 700;
-  font-size: 56px;
+  font-size: 53px;
   text-transform: capitalize;
   margin-bottom: 18px;
   margin-top: 18px;
