@@ -1,0 +1,169 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>XPatAi | XPatAi Homepage</title>
+
+    <!-- Styles -->
+    <link rel='stylesheet' href='/css/dist/app.css' />
+    <!-- end Styles -->
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel='shortcut icon' href='/images/logo/iconl.png' />
+    <link
+      rel='apple-touch-icon-precomposed'
+      href='/images/logo/iconl.png'
+    />
+  </head>
+  <body class='home-main header-fixed' data-magic-cursor='show'>
+    <!-- Preloading -->
+    <div class='preloader'>
+      <div class='loader'>
+        <div class='square'></div>
+        <div class='path'>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <p class='text-load'>Loading :</p>
+      </div>
+    </div>
+    <!-- End Preloading -->
+
+    <!-- Header -->
+    <header id='header_main' class='header'>
+      <div class='container'>
+        <div class='row'>
+          <div class='col-12'>
+            <div class='header__body'>
+              <div class='header__logo'>
+                <a href='/'>
+                  <img
+                    id='site-logo'
+                    src='/images/logo/logon.png'
+                    alt='ICOLand'
+                    width='165'
+                    height='40'
+                    data-retina='/images/logo/logon@x2.png'
+                    data-width='165'
+                    data-height='40'
+                  />
+                </a>
+              </div>
+
+              <div class='header__right'>
+                <nav id='main-nav' class='main-nav'>
+                  <ul id='menu-primary-menu' class='menu'>
+                    <li class='menu-item current-menu-item'>
+                      <a href='#hero'>Home Page</a>
+                    </li>
+                    <li class='menu-item'>
+                      <a href='#tokenomics'>Tokenomics</a>
+                    </li>
+                    <li class='menu-item'>
+                      <a href='/#4'>Roadmap</a>
+                    </li>
+                    <li class='menu-item'>
+                      <a href='/#4'>Team</a>
+                    </li>
+                  </ul>
+                </nav>
+                <div class='mobile-button'><span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- end Header -->
+
+    {{{body}}}
+
+    <!-- Footer -->
+    <footer class='footer style-2'>
+      <div class='footer__top'>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-md-12'>
+              <div class='content'>
+                <h3 class=''>Don't miss out, Stay updated</h3>
+                <form action='#' id='subscribe-form'>
+                  <input
+                    type='email'
+                    placeholder='Enter your email'
+                    required=''
+                    id='subscribe-email'
+                  />
+                  <button
+                    class='btn-action s2'
+                    type='submit'
+                    id='subscribe-button'
+                  >
+                    <span class='effect'>SUBSCRIBE</span>
+                  </button>
+                </form>
+                <p>
+                  Don’t hesitate to subscribe to latest news and updates from
+                  XPatAi.
+                </p>
+                <ul class='list-social'>
+                  <li>
+                    <a href='#'><span class='icon-twitter'></span></a>
+                  </li>
+                  <li>
+                    <a href='#'><span class='icon-facebook'></span></a>
+                  </li>
+                  <li>
+                    <a href='#'><span class='icon-youtobe'></span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class='col-md-5'></div>
+          </div>
+        </div>
+      </div>
+      <div class='footer__bottom center'>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-md-12'>
+              <p>
+                © 2022. All rights reserved by
+                <a href='#'>XPatAi Team</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+    <a id='scroll-top'></a>
+
+    <script src='/js/jquery.min.js'></script>
+    <script src='/js/jquery.easing.js'></script>
+    <script src='/js/app.js'></script>
+    <script src='/js/count-down.js'></script>
+    <script src='/js/aos.js'></script>
+    <script src='/js/chart.js'></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <script>
+      let numberPercent = document.querySelectorAll('.countbar'); let getPercent
+      = Array.from(numberPercent); getPercent.map((items) => { let startCount =
+      0; let progressBar = () => { startCount++; items.style.width =
+      `${startCount}%`; if (startCount == items.dataset.percentnumber) {
+      clearInterval(stop); } }; let stop = setInterval(() => { progressBar(); },
+      25); });
+    </script>
+
+    <script src='/js/mouse.js'></script>
+  </body>
+
+</html>
