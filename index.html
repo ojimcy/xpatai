@@ -46,11 +46,11 @@
                 <a href="/">
                   <img
                     id="site-logo"
-                    src="assets/images/logo/logow.png"
+                    src="assets/images/logo/logon.png"
                     alt="ICOLand"
                     width="165"
                     height="40"
-                    data-retina="assets/images/logo/logo@x2.png"
+                    data-retina="assets/images/logo/logon@x2.png"
                     data-width="165"
                     data-height="40"
                   />
@@ -61,10 +61,10 @@
                 <nav id="main-nav" class="main-nav">
                   <ul id="menu-primary-menu" class="menu">
                     <li class="menu-item current-menu-item">
-                      <a href="#">Home Page</a>
+                      <a href="#hero">Home Page</a>
                     </li>
                     <li class="menu-item">
-                      <a href="/#4">Tokenomics</a>
+                      <a href="#tokenomics">Tokenomics</a>
                     </li>
                     <li class="menu-item">
                       <a href="/#4">Roadmap</a>
@@ -84,7 +84,7 @@
     <!-- end Header -->
 
     <!-- Banner Top -->
-    <section class="banner-top style-3">
+    <section class="banner-top style-3" id="hero">
       <div class="container">
         <div class="row">
           <div class="col-xl-7 col-md-12">
@@ -216,6 +216,11 @@
                     </p>
                   </div>
                 </div>
+                <div class="button">
+                  <a class="btn-action-outline style-5" href="#">
+                    <span>Get Started</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -323,7 +328,7 @@
     <!-- End Section Choose -->
 
     <!-- Section Allocation & Funds Distribution -->
-    <section class="allo-dist" id="sales 4">
+    <section class="allo-dist" id="sales 4 tokenomics" >
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -970,55 +975,6 @@
           progressBar();
         }, 25);
       });
-    </script>
-    <script>
-      const data1 = {
-        labels: [
-          'Marketing',
-          'Bussiness Development',
-          'Product Development',
-          'Reserve',
-          'Reserve',
-          'Token Sale',
-        ],
-        datasets: [
-          {
-            label: 'My First Dataset',
-            data: [25, 25, 10, 10, 10, 20],
-            backgroundColor: [
-              '#3D88FB',
-              '#5637C8',
-              '#00D199',
-              '#C87B07',
-              '#A92535',
-              '#9116CD',
-            ],
-          },
-        ],
-      };
-
-      const config1 = {
-        type: 'doughnut',
-        data: data1,
-        width: 240,
-        options: {
-          maintainAspectRatio: false,
-          plugins: {
-            legend: false, // Hide legend
-          },
-          scales: {
-            y: {
-              display: false, // Hide Y axis labels
-            },
-            x: {
-              display: false, // Hide X axis labels
-            },
-          },
-        },
-      };
-
-      const myChart1 = new Chart(document.getElementById('myChart1'), config1);
-      const myChart2 = new Chart(document.getElementById('myChart2'), config1);
     </script>
 
     <script src="app/js/mouse.js"></script>
