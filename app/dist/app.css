@@ -1596,6 +1596,7 @@ h3, h5 {
 .banner-top.style-2 .banner-top__content .button a {
   padding: 14px 42px;
   display: inline-block;
+  margin-bottom: 15px;
 }
 .banner-top.style-2 .banner-top__content .content-list {
   margin-top: 94px;
@@ -1767,6 +1768,8 @@ h3, h5 {
 }
 .banner-top__image {
     animation: move5 3s infinite linear;
+    width: 100%;
+    margin-top: 50px;
 }
 .banner-top.style-3 .banner-top__content .desc {
   font-size: 20px;
