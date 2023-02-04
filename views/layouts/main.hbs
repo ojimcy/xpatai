@@ -145,7 +145,54 @@
       25); });
     </script>
 
-    <script src='/js/mouse.js'></script>
+      </script>
+      <script>
+          const data1 = {
+            labels: [
+                'Liquidity',
+                'Team',
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [95, 5],
+                backgroundColor: [
+                '#2724ca',
+                '#23e4a1',
+                ], 
+            }]
+        };
+
+        const config1 = {
+            type: 'doughnut',
+            data: data1,
+            width:240,
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: false // Hide legend
+                },
+                scales: {
+                    y: {
+                        display: false // Hide Y axis labels
+                    },
+                    x: {
+                        display: false // Hide X axis labels
+                    }
+                }   
+            }
+        };
+
+            const myChart1 = new Chart(
+            document.getElementById('myChart1'),
+            config1
+            );
+            const myChart2 = new Chart(
+            document.getElementById('myChart2'),
+            config1
+        );
+      </script>
+
+    {{!-- <script src='/js/mouse.js'></script> --}}
   </body>
 
 </html>
