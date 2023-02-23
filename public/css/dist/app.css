@@ -14615,4 +14615,22 @@ img.mfp-img {
   margin: 0 auto;
 }
 
+/* Slider  */
+.banner-top__image {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-height: 700px;
+}
+.slider {
+  position: relative;
+  width: 100%;
+}
+.slider img {
+  width: 100%;
+  object-fit: contain;
+}
+
+
+
 /*# sourceMappingURL=app.css.map */
