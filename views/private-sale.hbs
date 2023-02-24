@@ -1,0 +1,52 @@
+<section class='allo-dist' id='tokenomics'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class='block-text token-allo center'>
+          <h3>Private Sale </h3>
+          <p class='desc mt-12'>
+            The minimum amount you can commit is 0.125 ETH while the maximum is
+            3 ETH.
+          </p>
+          <p class='desc'>
+            Exchange rate: 1 ETH = 576,000 XINK.
+          </p>
+        </div>
+        <div class='row'>
+          <div class='col-xl-6 col-lg-6 col-md-12 offset-lg-3'>
+            <div class='dashboard__content'>
+              <h2 class='center'>Buy XINK Tokens</h2>
+              <p class='wallet-address'>Wallet Address: {{walletAddress}}</p>
+              <form class='buy-form'>
+                <div class='form-group'>
+                  <label for='eth-amount'>Enter ETH Amount</label>
+                  <input
+                    type='number'
+                    class='form-control'
+                    id='eth-amount'
+                    name='eth-amount'
+                    min='0.125'
+                    max='3'
+                    step='0.001'
+                    required
+                  />
+                </div>
+                <div class='form-group'>
+                  <label for='xink-equivalent'>XINK Equivalent</label>
+                  <input
+                    type='number'
+                    class='form-control'
+                    id='xink-equivalent'
+                    name='xink-equivalent'
+                    readonly
+                  />
+                </div>
+                <button type='submit' class='btn-action style-5'>Buy XINK</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

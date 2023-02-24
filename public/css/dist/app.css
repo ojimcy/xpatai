@@ -14630,7 +14630,9 @@ img.mfp-img {
   width: 100%;
   object-fit: contain;
 }
-
+.dashboard__content button {
+  margin: 0 auto;
+}
 
 
 /*# sourceMappingURL=app.css.map */
