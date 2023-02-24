@@ -139,6 +139,36 @@
     <script>
       AOS.init();
     </script>
+    <script>
+       // Get all the menu items
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    // Loop through each menu item and add an event listener to it
+    menuItems.forEach((menuItem) => {
+      const section = document.querySelector(
+        menuItem.querySelector('a').getAttribute('href')
+      );
+
+      // Add an event listener to the window object for scrolling
+      window.addEventListener('scroll', () => {
+        // Get the position of the section on the page
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+
+        // Check if the window is currently scrolled to the section
+        if (
+          window.pageYOffset >= sectionTop &&
+          window.pageYOffset < sectionBottom
+        ) {
+          // Add the current-menu-item class to the menu item
+          menuItem.classList.add('current-menu-item');
+        } else {
+          // Remove the current-menu-item class from the menu item
+          menuItem.classList.remove('current-menu-item');
+        }
+      });
+    });
+    </script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js'></script>
     <script>
       $(document).ready(function(){

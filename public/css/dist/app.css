@@ -14629,6 +14629,7 @@ img.mfp-img {
 .slider img {
   width: 100%;
   object-fit: contain;
+  max-height: 570px;
 }
 .dashboard__content button {
   margin: 0 auto;
