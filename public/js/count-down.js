@@ -78,7 +78,7 @@ Util.setAttributes = function (el, attrs) {
 
   CountDown.prototype.getEndTime = function () {
     // get number of remaining seconds
-    var end = new Date(2023, 1, 28); // March 2, 2023
+    var end = new Date(2023, 2, 4); // March 4, 2023
     return end.getTime();
   };
 
