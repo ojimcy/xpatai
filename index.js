@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use('/', require('./routes/index'));
+app.use('/dashboard', require('./routes/index'));
 
 const PORT = 3000;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
