@@ -1240,7 +1240,8 @@ h5 {
   text-transform: uppercase;
   padding: 12px 38px;
   border-radius: 50px;
-  border: 2px solid #e250e5;
+  border: 2px solid #23e4a1;
+  justify-content: center;
 }
 .btn-action-outline.style-5::before {
   background: #e250e5;
@@ -10949,8 +10950,11 @@ img.mfp-img {
   padding: 40px 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  margin-left: 15px;
   margin-bottom: 40px;
+}
+.dashboard .dashboard__sidebar .sidebar__logo img {
+  width: 167px;
 }
 .dashboard .dashboard__sidebar .sidebar__menu {
   height: 60vh;
@@ -11240,6 +11244,7 @@ img.mfp-img {
   flex-wrap: wrap;
   margin-top: 60px;
   margin-left: 15px;
+  justify-content: center;
 }
 .dashboard
   .dashboard__content
