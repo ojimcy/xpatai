@@ -11,7 +11,7 @@
   * loadmore
 */
 
-; (function ($) {
+(function ($) {
     "use strict";
 
     //Scroll back to top
@@ -263,9 +263,10 @@
         
     };
 
+
     // Sidebar Toggle
     
-    $('.btn').click(function(){
+    $('#btnSidebarToggle').click(function(){
         $(this).toggleClass("click");
         $('.dashboard__sidebar').toggleClass("show");
         $('.dashboard').toggleClass("show");

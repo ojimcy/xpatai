@@ -1,158 +1,124 @@
-'use strict';
-function Util() {}
-Util.setAttributes = function (el, attrs) {
-  for (var key in attrs) {
-    el.setAttribute(key, attrs[key]);
+function startCountdown(targetDate, element) {
+  const targetTime = new Date(targetDate).getTime();
+
+  const countdownInterval = setInterval(() => {
+    const currentTime = new Date().getTime();
+    const timeRemaining = targetTime - currentTime;
+
+    if (timeRemaining <= 0) {
+      clearInterval(countdownInterval);
+      return;
+    }
+
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor(
+      (timeRemaining % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+    if (element) {
+      // Set the content of the element based on its ID
+      if (element.id === 'countdown1') {
+        element.textContent = days.toString().padStart(2, '0');
+      } else if (element.id === 'countdown2') {
+        element.textContent = hours.toString().padStart(2, '0');
+      } else if (element.id === 'countdown3') {
+        element.textContent = minutes.toString().padStart(2, '0');
+      } else if (element.id === 'countdown4') {
+        element.textContent = seconds.toString().padStart(2, '0');
+      }
+    }
+  }, 1000);
+}
+
+// Example usage
+const targetDate1 = new Date('2023-03-20T19:00:00');
+const element1 = document.querySelector('#countdown1');
+startCountdown(targetDate1, element1);
+
+const targetDate2 = new Date('2023-03-20T19:00:00');
+const element2 = document.querySelector('#countdown2');
+startCountdown(targetDate2, element2);
+
+const targetDate3 = new Date('2023-03-20T19:00:00');
+const element3 = document.querySelector('#countdown3');
+startCountdown(targetDate3, element3);
+
+const targetDate4 = new Date('2023-03-20T19:00:00');
+const element4 = document.querySelector('#countdown4');
+startCountdown(targetDate4, element4);
+
+// Get the withdraw button element
+const withdrawBtn = document.getElementById('withdrawBtn');
+// Add a click event listener to the withdraw button
+function withdraw() {
+  // Retrieve the withdrawal amount
+  const withdrawalAmount = 99;
+
+  // Check if the withdrawal amount is less than 100
+  if (withdrawalAmount < 100) {
+    alert(
+      'Minimum withdrawal amount is 100 XINK. Withdrawal Will be enabled on 10th April 2023!'
+    );
+  }
+}
+
+const copyToClipboard = (text) => {
+  const element = document.createElement('textarea');
+  element.value = text;
+  document.body.appendChild(element);
+  element.select();
+  document.execCommand('copy');
+  document.body.removeChild(element);
+};
+
+const copyButton = document.getElementById('copyToClipboard');
+const referralCode = document.getElementById('referralCode');
+
+if (copyButton) {
+  copyButton.addEventListener('click', () => {
+    copyToClipboard(referralCode.innerText);
+    alert('Referral code copied to clipboard');
+  });
+}
+
+// mining button
+const miningBtn = document.getElementById('startMining');
+
+const checkLastMiningDate = async () => {
+  const response = await fetch('/api/mining/last-mining-date');
+  const data = await response.json();
+  return data;
+};
+
+const setMiningTimeout = (data) => {
+  if (!data.canMine) {
+    miningBtn.classList.add('disabled');
+    miningBtn.innerHTML = `Come back in (${data.remainingHours} hour(s) time)`;
   }
 };
 
-(function () {
-  var CountDown = function (element) {
-    this.element = element;
-    this.labels = this.element.getAttribute('data-labels')
-      ? this.element.getAttribute('data-labels').split(',')
-      : [];
-    this.intervalId;
-    // set visible labels
-    this.setVisibleLabels();
-    //create countdown HTML
-    this.createCountDown();
-    //store time elements
-    this.days = this.element.getElementsByClassName(
-      'js-countdown__value--0'
-    )[0];
-    this.hours = this.element.getElementsByClassName(
-      'js-countdown__value--1'
-    )[0];
-    this.mins = this.element.getElementsByClassName(
-      'js-countdown__value--2'
-    )[0];
-    this.secs = this.element.getElementsByClassName(
-      'js-countdown__value--3'
-    )[0];
-    this.endTime = this.getEndTime();
-    //init counter
-    this.initCountDown();
-  };
+const handleMiningBtnClick = async () => {
+  const response = await fetch('/api/mining/last-mining-date');
+  const data = await response.json();
+  const canMine = data.canMine;
 
-  CountDown.prototype.setVisibleLabels = function () {
-    this.visibleLabels = this.element.getAttribute('data-visible-labels')
-      ? this.element.getAttribute('data-visible-labels').split(',')
-      : [];
-    this.visibleLabels = this.visibleLabels.map(function (label) {
-      return label.trim();
-    });
-  };
+  if (!canMine) {
+    alert(data.message);
+  } else {
+    miningBtn.classList.add('disabled');
+    miningBtn.innerHTML = 'Mining in progress...';
+    setTimeout(() => {
+      miningBtn.classList.remove('disabled');
+      miningBtn.innerHTML = 'Click to Mine';
+    }, 5000);
+  }
+};
 
-  CountDown.prototype.createCountDown = function () {
-    var wrapper = document.createElement('div');
-    Util.setAttributes(wrapper, {
-      'aria-hidden': 'true',
-      class: 'countdown__timer',
-    });
-
-    for (var i = 0; i < 4; i++) {
-      var timeItem = document.createElement('span'),
-        timeValue = document.createElement('span'),
-        timeLabel = document.createElement('span');
-
-      timeItem.setAttribute('class', 'countdown__item');
-      timeValue.setAttribute(
-        'class',
-        'countdown__value countdown__value--' + i + ' js-countdown__value--' + i
-      );
-      timeItem.appendChild(timeValue);
-
-      if (this.labels && this.labels.length > 0) {
-        timeLabel.textContent = this.labels[i].trim();
-        timeLabel.setAttribute('class', 'countdown__label');
-        timeItem.appendChild(timeLabel);
-      }
-
-      wrapper.appendChild(timeItem);
-    }
-    // append new content to countdown element
-    this.element.insertBefore(wrapper, this.element.firstChild);
-    // this.element.appendChild(wrapper);
-  };
-
-  CountDown.prototype.getEndTime = function () {
-    // get number of remaining seconds
-    var end = new Date(2023, 2, 4); // March 4, 2023
-    return end.getTime();
-  };
-
-  CountDown.prototype.initCountDown = function () {
-    var self = this;
-    this.intervalId = setInterval(function () {
-      self.updateCountDown(false);
-    }, 1000);
-    this.updateCountDown(true);
-  };
-
-  CountDown.prototype.updateCountDown = function (bool) {
-    // original countdown function
-    // https://gist.github.com/adriennetacke/f5a25c304f1b7b4a6fa42db70415bad2
-    var time = parseInt((this.endTime - new Date().getTime()) / 1000),
-      days = 0,
-      hours = 0,
-      mins = 0,
-      seconds = 0;
-
-    if (isNaN(time) || time < 0) {
-      clearInterval(this.intervalId);
-      this.emitEndEvent();
-    } else {
-      days = parseInt(time / 86400);
-      time = time % 86400;
-      hours = parseInt(time / 3600);
-      time = time % 3600;
-      mins = parseInt(time / 60);
-      time = time % 60;
-      seconds = parseInt(time);
-    }
-
-    // hide days/hours/mins if not available
-    if (bool && days == 0 && this.visibleLabels.indexOf('d') < 0)
-      this.days.parentElement.style.display = 'none';
-    if (bool && days == 0 && hours == 0 && this.visibleLabels.indexOf('h') < 0)
-      this.hours.parentElement.style.display = 'none';
-    if (
-      bool &&
-      days == 0 &&
-      hours == 0 &&
-      mins == 0 &&
-      this.visibleLabels.indexOf('m') < 0
-    )
-      this.mins.parentElement.style.display = 'none';
-
-    this.days.textContent = days;
-    this.hours.textContent = this.getTimeFormat(hours);
-    this.mins.textContent = this.getTimeFormat(mins);
-    this.secs.textContent = this.getTimeFormat(seconds);
-  };
-
-  CountDown.prototype.getTimeFormat = function (time) {
-    return ('0' + time).slice(-2);
-  };
-
-  CountDown.prototype.emitEndEvent = function (time) {
-    var event = new CustomEvent('countDownFinished');
-    this.element.dispatchEvent(event);
-  };
-
-  // Functions calling
-  window.addEventListener('load', function () {
-    //initialize the CountDown objects
-    /*        window.setTimeout(() => {*/
-    var countDown = document.getElementsByClassName('js-countdown');
-    if (countDown.length > 0) {
-      for (var i = 0; i < countDown.length; i++) {
-        (function (i) {
-          new CountDown(countDown[i]);
-        })(i);
-      }
-    }
-    /*      }, 1000);*/
-  });
-})();
+checkLastMiningDate().then(setMiningTimeout);
+if (miningBtn) {
+  miningBtn.addEventListener('click', handleMiningBtnClick);
+}
