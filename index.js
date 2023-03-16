@@ -7,6 +7,9 @@ const {
   allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
 
+const authRoute = require('./routes/auth')
+const homeRoute = require('./routes/index')
+
 const app = express();
 
 //Handlebars
@@ -25,8 +28,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // set static folder
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use('/', require('./routes/index'));
-app.use('/dashboard', require('./routes/index'));
+app.use('/', homeRoute);
+
+app.use('/', authRoute)
 
 const PORT = 3000;
 app.listen(PORT, console.log(`Server started on http://localhost:${PORT}`));

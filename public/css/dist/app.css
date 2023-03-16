@@ -1,5 +1,5 @@
 /**
-  * Name: ICOLand | ICO landing page & ICO Crypto HTML Template
+  * Name: XpatAi | ICO landing page & ICO Crypto HTML Template
   * Version: 1.0.2
   * Author: Themesflat
   * Author URI: http://www.themesflat.com
@@ -1181,7 +1181,7 @@ h5 {
 .btn-action-outline.style-1 {
   border-color: #c004de;
   border-radius: 12px;
-  padding: 11px 33px;
+  padding: 2px 18px;
 }
 .btn-action-outline.style-1::before {
   background: #c004de;
@@ -1211,6 +1211,7 @@ h5 {
 }
 .btn-action-outline.style-3::before {
   background: #23e4a1;
+  color: #fff;
 }
 
 .btn-action-outline.style-4 {
@@ -1237,14 +1238,13 @@ h5 {
 
 .btn-action-outline.style-5 {
   font-family: 'Oswald';
-  text-transform: uppercase;
   padding: 12px 38px;
   border-radius: 50px;
   border: 2px solid #23e4a1;
   justify-content: center;
 }
 .btn-action-outline.style-5::before {
-  background: #e250e5;
+  background: transparent;
 }
 
 .btn-action-outline.style-6 {
@@ -3819,7 +3819,7 @@ h5 {
 
 .road-map.style-4 {
   padding: 59px 0 43px;
-  background: #130f40;
+  /* background: #130f40; */
 }
 .road-map.style-4 .block-text .heading {
   font-size: 40px;
@@ -3979,7 +3979,7 @@ h5 {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: -2px;
+  margin-bottom: 5px;
 }
 .road-map.style-4 .road-map__main .box-roadmap .list li .dot {
   width: 5px;
@@ -10889,7 +10889,7 @@ img.mfp-img {
 .dashboard p {
   color: #fff;
 }
-.dashboard .btn {
+.dashboard .botn {
   position: fixed;
   z-index: 99;
   top: 15px;
@@ -11283,7 +11283,7 @@ img.mfp-img {
   .banner
   .content-list
   li:nth-child(2) {
-  padding-right: 94px;
+  /* padding-right: 94px; */
 }
 .dashboard
   .dashboard__content
@@ -11362,7 +11362,7 @@ img.mfp-img {
 }
 @media only screen and (max-width: 767px) {
   .dashboard .dashboard__content .dashboard__main .banner .content-list {
-    flex-wrap: wrap;
+    flex-wrap: row;
   }
   .dashboard .dashboard__content .dashboard__main .banner .content-list li {
     padding-right: 0;
@@ -11376,6 +11376,17 @@ img.mfp-img {
     .content-list
     li::after {
     display: none;
+  }
+  .dashboard .dashboard__content .dashboard__main .banner .content-list li p,
+  .dashboard .dashboard__content .dashboard__main .banner .content-list li h5,
+  .dashboard
+    .dashboard__content
+    .dashboard__main
+    .banner
+    .content-list
+    li
+    span {
+    font-size: 15px !important;
   }
 }
 .dashboard .dashboard__content .dashboard__main .banner .banner-top__sale {
@@ -12120,9 +12131,9 @@ img.mfp-img {
   .dashboard.show .dashboard__content {
     margin-left: 0;
   }
-  .dashboard.show .dashboard__content .overlay {
+  /* .dashboard.show .dashboard__content .overlay {
     display: block;
-  }
+  } */
 }
 
 .home-main p {
@@ -12449,11 +12460,11 @@ img.mfp-img {
 .sign-in .sign-in__main {
   margin: 40px auto 24px;
   max-width: 570px;
-  height: 596px;
+  min-height: 596px;
   background: #ffffff;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.05);
   border-radius: 20px;
-  padding: 40px 60px;
+  padding: 22px 60px;
 }
 .sign-in .sign-in__main .top .title {
   color: #181818;
@@ -12540,6 +12551,7 @@ img.mfp-img {
   display: flex;
   margin: 0 -6px;
   margin-top: 18px;
+  justify-content: center;
 }
 .sign-in .sign-in__main .bottom .group-btn a {
   width: 50%;
@@ -12565,7 +12577,7 @@ img.mfp-img {
 }
 @media only screen and (max-width: 767px) {
   .sign-in .sign-in__main {
-    padding: 40px 30px;
+    padding: 22px 35px;
   }
   .sign-in .sign-in__main .bottom p::after {
     right: 0;
@@ -12585,7 +12597,7 @@ img.mfp-img {
   font-weight: 700;
 }
 .sign-in.sign-up .sign-in__main {
-  height: 696px;
+  min-height: 696px;
 }
 .sign-in.sign-up .sign-in__main .form-check .form-check-label {
   color: #a09faf;
@@ -14640,5 +14652,119 @@ img.mfp-img {
   margin: 0 auto;
 }
 
+.progress-circle {
+  max-width: 137px !important;
+  margin: 0 auto;
+}
 
+.dashboard svg {
+  cursor: pointer;
+}
+
+.dashboard .card-footer {
+  display: flex !important;
+  justify-content: center;
+}
+
+.dashboard .card-footer .btn-action-outline.style-5 {
+  background-color: #14141f;
+}
+
+.dashboard .card-footer .btn-action-outline.style-5:hover {
+  background-color: transparent !important;
+  color: #14141f;
+}
+
+#miningTimer {
+  position: absolute;
+  top: 74px;
+  left: 310px;
+}
+
+.form-group p {
+  color: red;
+}
+
+#error {
+  color: red;
+}
+
+#success {
+  color: green;
+}
+
+@media only screen and (max-width: 767px) {
+  #miningTimer {
+    left: 74px !important;
+  }
+  #miningTimer ul {
+    margin-left: 34px !important;
+  }
+}
+
+.invite-box {
+  background-color: black;
+  padding: 15px 0;
+  border-radius: 5px;
+}
+#miningTimer ul {
+  display: flex;
+  margin-left: -60px;
+}
+#miningTimer li {
+  padding-right: 5px;
+}
+#miningTimer li h3,
+h6 {
+  color: #050231;
+}
+
+.shareCopy h5 {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 103px;
+  margin-bottom: 30px;
+}
+
+.shareCopy a {
+  width: 90%;
+}
+
+.miningBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #14141f !important;
+  width: 150px;
+  height: 150px;
+  border-radius: 72% !important;
+  text-transform: capitalize;
+  border: 2px solid #23e4a1;
+  padding: 0px !important;
+}
+.miningBtn:hover {
+  background-color: transparent !important;
+}
+
+.mining-progres {
+  margin-top: 7px;
+  padding: 24px 0 51px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(
+      180deg,
+      rgba(75, 20, 192, 0.2) 0%,
+      rgba(196, 41, 221, 0.2) 100%
+    );
+  backdrop-filter: blur(100px);
+  border-radius: 20px;
+  text-align: center;
+}
+
+/* #register-form {
+  display: none;
+} */
+
+.sign-up__main .bottom .group-btn a {
+  width: 100% !important;
+}
 /*# sourceMappingURL=app.css.map */

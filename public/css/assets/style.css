@@ -849,7 +849,7 @@
 }
 .icon-ico-social-share:before {
   content: "\e9fe";
-  color: #fff;
+  color: #14141f;
 }
 .icon-ico-solution:before {
   content: "\e9ff";
@@ -1124,6 +1124,11 @@
   content: "\ea0d";
   color: #fff;
 }
+
+.icon-rocket:before {
+  content: "\1F680";
+  color: #fff;
+}
 .icon-setting:before {
   content: "\ea0e";
   color: #fff;
@@ -1252,6 +1257,9 @@
 .icon-end:before {
   content: "\e907";
 }
+.icon-dollar {
+  content: \0024;
+}
 .icon-facebook:before {
   content: "\e908";
   color: #fff;
@@ -1311,5 +1319,9 @@
 .icon-youtobe:before {
   content: "\e916";
   color: #fff;
+}
+
+.icon-copy:before {
+  content: "\1F4CB";
 }
 
